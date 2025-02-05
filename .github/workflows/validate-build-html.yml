@@ -1,0 +1,16 @@
+name: validate-build-html
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: build-image
+      run: docker build . --file Dockerfile --tag  appstellaracademy/html:latest
+      #working-directory: html
