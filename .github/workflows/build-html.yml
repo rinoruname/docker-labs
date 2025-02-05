@@ -27,7 +27,7 @@ jobs:
       run: |
         docker tag rinoruname/html:${{ env.IMAGE_TAG }} rinoruname/html:latest
         docker push rinoruname/html:${{ env.IMAGE_TAG }}
-        docker push rinoruname/html:lates
+        docker push rinoruname/html:latest
 
 
       
