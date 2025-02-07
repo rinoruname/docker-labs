@@ -1,17 +1,20 @@
-name: Validate
+name: validate-rule
 
 on:
-  pull_request:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+env:
+  IMAGE_TAG: ${{ github.sha }}
 
 jobs:
-  validate:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - uses: actions/checkout@v4
 
-      - name: Wait for 10 seconds
-        run: sleep 10
-
-      - name: Exit successfully
-        run: exit 0
+    - name: build-image
+      run: docker build . --file Dockerfile --tag  rinoruname/html:${{ env.IMAGE_TAG }}
+      working-directory: html
