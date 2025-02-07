@@ -14,23 +14,17 @@ jobs:
       - name: Check if validate-build-html.yml exists
         run: |
           if [ ! -f .github/workflows/validate-build-html.yml ]; then
-            echo "validate-build-html.yml not found!";
-            exit 1;
+            echo "validate-build-html.yml not found!"; exit 1;
           fi
 
       - name: Check if validate-build-html.yml includes pull_request checks
         run: |
           if ! grep -q 'pull_request' .github/workflows/validate-build-html.yml; then
-            echo "validate-build-html.yml does not include pull_request checks!";
-            exit 1;
+            echo "validate-build-html.yml does not include pull_request checks!"; exit 1;
           fi
 
-      - name: Approve merge if checks pass
-        run: |
-          echo "The pull request is ready to be merged for HTML!"
-
-      - name: Job completed successfully
-        run: exit 0  # Ensure the job ends successfully
+      - name: Job completed successfully for HTML
+        run: echo "The pull request is ready to be merged for HTML!"
 
   validate-build-php:
     runs-on: ubuntu-latest
@@ -41,23 +35,17 @@ jobs:
       - name: Check if validate-build-php.yml exists
         run: |
           if [ ! -f .github/workflows/validate-build-php.yml ]; then
-            echo "validate-build-php.yml not found!";
-            exit 1;
+            echo "validate-build-php.yml not found!"; exit 1;
           fi
 
       - name: Check if validate-build-php.yml includes pull_request checks
         run: |
           if ! grep -q 'pull_request' .github/workflows/validate-build-php.yml; then
-            echo "validate-build-php.yml does not include pull_request checks!";
-            exit 1;
+            echo "validate-build-php.yml does not include pull_request checks!"; exit 1;
           fi
 
-      - name: Approve merge if checks pass
-        run: |
-          echo "The pull request is ready to be merged for PHP!"
-
-      - name: Job completed successfully
-        run: exit 0  # Ensure the job ends successfully
+      - name: Job completed successfully for PHP
+        run: echo "The pull request is ready to be merged for PHP!"
 
   validate-build-python:
     runs-on: ubuntu-latest
@@ -68,20 +56,14 @@ jobs:
       - name: Check if validate-build-python.yml exists
         run: |
           if [ ! -f .github/workflows/validate-build-python.yml ]; then
-            echo "validate-build-python.yml not found!";
-            exit 1;
+            echo "validate-build-python.yml not found!"; exit 1;
           fi
 
       - name: Check if validate-build-python.yml includes pull_request checks
         run: |
           if ! grep -q 'pull_request' .github/workflows/validate-build-python.yml; then
-            echo "validate-build-python.yml does not include pull_request checks!";
-            exit 1;
+            echo "validate-build-python.yml does not include pull_request checks!"; exit 1;
           fi
 
-      - name: Approve merge if checks pass
-        run: |
-          echo "The pull request is ready to be merged for Python!"
-
-      - name: Job completed successfully
-        run: exit 0  # Ensure the job ends successfully
+      - name: Job completed successfully for Python
+        run: echo "The pull request is ready to be merged for Python!"
