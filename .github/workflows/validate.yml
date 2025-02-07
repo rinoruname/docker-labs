@@ -5,9 +5,8 @@ on:
     types: [opened, synchronize, reopened]
 
 jobs:
-  validate-pull-request:
+  validate-build-html:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -28,11 +27,13 @@ jobs:
 
       - name: Approve merge if checks pass
         run: |
-          echo "The pull request is ready to be merged!";
-  
+          echo "The pull request is ready to be merged for HTML!";
+        
+      - name: Job completed successfully
+        run: exit 0  # Ensure the job ends successfully
+
   validate-build-php:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -55,9 +56,11 @@ jobs:
         run: |
           echo "The pull request is ready to be merged for PHP!";
 
+      - name: Job completed successfully
+        run: exit 0  # Ensure the job ends successfully
+
   validate-build-python:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -79,3 +82,7 @@ jobs:
       - name: Approve merge if checks pass
         run: |
           echo "The pull request is ready to be merged for Python!";
+
+      - name: Job completed successfully
+        run: exit 0  # Ensure the job ends successfully
+
