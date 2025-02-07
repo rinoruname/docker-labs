@@ -3,31 +3,30 @@ name: build-html
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - 'html/**'
+      - '.github/workflows/build-html.yml'
   workflow_dispatch:
 
 env:
   IMAGE_TAG: ${{ github.sha }}
-  
+
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
-    - name: build-html
-      run: docker build . --file Dockerfile --tag rinoruname/html:${{env.IMAGE_TAG}}
+    
+    - name: build-image
+      run: docker build . --file Dockerfile --tag  rinoruname/html:${{ env.IMAGE_TAG }}
       working-directory: html
 
     - name: docker-login
       run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password ${{ secrets.DOCKER_HUB_PAT }}
-    
+
     - name: publish-image
       run: |
         docker tag rinoruname/html:${{ env.IMAGE_TAG }} rinoruname/html:latest
         docker push rinoruname/html:${{ env.IMAGE_TAG }}
         docker push rinoruname/html:latest
-
-
-      

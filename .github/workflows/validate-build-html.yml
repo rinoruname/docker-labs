@@ -3,6 +3,9 @@ name: validate-build-html
 on:
   pull_request:
     branches: [ "main" ]
+    paths:
+      - 'html/**'
+      - '.github/workflows/validate-build-html.yml'
 
 jobs:
   build:
