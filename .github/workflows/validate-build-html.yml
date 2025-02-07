@@ -12,5 +12,5 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: build-image
-      run: docker build . --file Dockerfile --tag  appstellaracademy/html:latest
-      #working-directory: html
+      run: docker build . --file Dockerfile --tag  rinoruname/html:latest
+      working-directory: html
