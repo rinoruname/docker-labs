@@ -18,7 +18,7 @@ jobs:
     - uses: actions/checkout@v4
     - name: build-html
       run: docker build . --file Dockerfile --tag rinoruname/html:${{env.IMAGE_TAG}}
-      #working-directory: html
+      working-directory: html
 
     - name: docker-login
       run: docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password ${{ secrets.DOCKER_HUB_PAT }}
