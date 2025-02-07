@@ -1,0 +1,17 @@
+name: Validate
+
+on:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Wait for 10 seconds
+        run: sleep 10
+
+      - name: Exit successfully
+        run: exit 0
