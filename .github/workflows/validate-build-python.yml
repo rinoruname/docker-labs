@@ -1,0 +1,22 @@
+name: validate-build-python
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'python/**'
+      - '.github/workflows/validate-build-python.yml'
+
+defaults:
+  run:
+    working-directory: python
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: build-image
+      run: docker build . --file Dockerfile --tag  rinoruname/python:latest
