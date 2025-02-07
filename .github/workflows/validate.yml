@@ -27,8 +27,8 @@ jobs:
 
       - name: Approve merge if checks pass
         run: |
-          echo "The pull request is ready to be merged for HTML!";
-        
+          echo "The pull request is ready to be merged for HTML!"
+
       - name: Job completed successfully
         run: exit 0  # Ensure the job ends successfully
 
@@ -54,7 +54,7 @@ jobs:
 
       - name: Approve merge if checks pass
         run: |
-          echo "The pull request is ready to be merged for PHP!";
+          echo "The pull request is ready to be merged for PHP!"
 
       - name: Job completed successfully
         run: exit 0  # Ensure the job ends successfully
@@ -81,8 +81,7 @@ jobs:
 
       - name: Approve merge if checks pass
         run: |
-          echo "The pull request is ready to be merged for Python!";
+          echo "The pull request is ready to be merged for Python!"
 
       - name: Job completed successfully
         run: exit 0  # Ensure the job ends successfully
-
